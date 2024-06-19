@@ -1,5 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #F7F9F2;
 }
 
 h1 {
@@ -9,6 +10,7 @@ h1 {
 hr {
   border: none;
   border-top: 1px solid #d1ced0; 
+  padding: 0px 0px 10px 0px;
 }
 
 #game-board {
@@ -21,13 +23,13 @@ hr {
 }
 
 .letter-box {
+  margin: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #d1ced0;
   width: 50px;
   height: 50px;
-  margin: 3px;
   color: #000000;
   font-size: 36px;
   font-weight: bold;
@@ -54,8 +56,9 @@ hr {
 #keyboard-container {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   margin: auto;
-  padding: 30px 0px 0px 0px;
+  padding: 40px 0px 0px 0px;
 }
 
 .key-button {
@@ -94,7 +97,7 @@ hr {
 
 .empty-button {
   border: none;
-  width: 20px; /* to center the second keyboard row */
+  width: 6px; /* to center the second keyboard row */
 }
 
 .keyboard-row {
@@ -102,5 +105,4 @@ hr {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  width: 435px;
 }

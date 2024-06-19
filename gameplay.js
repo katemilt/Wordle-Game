@@ -8,6 +8,7 @@ var currRow = 0;
 var currCol = 0;
 var gameEnd = false;
 let solution = WORDS[Math.floor(Math.random() * WORDS.length)]
+
 console.log(solution);
 
 window.onload = function() {
@@ -128,64 +129,59 @@ function handleBack() {
 }
 
 function checkWord() {
-    let guess = "";
-    document.getElementById("answer").textContent = "";
+    let guess = [];
 
-    // String up the guesses into the word
+    // Collect the guessed letters into an array
     for (let i = 0; i < WORD_LEN; i++) {
         let pressedKey = document.getElementById(`${currRow}${i}`);
-        guess += pressedKey.textContent;
+        guess.push(pressedKey.textContent);
     }
 
-    //guess = guess.toLowerCase(); // Case insensitive
+    guess = guess.join(""); // Convert array to string
+
     console.log(guess);
 
+    // Check if the guess is in the list of valid words
     if (!WORDS.includes(guess)) {
         alert("Not in word list!");
         return;
     }
 
     // Start processing guess
-    let correct = 0;
     let letterCount = {};
+    let correctPositions = [];
 
-    // Build letter count
+    // Build letter count for the solution
     [...solution].forEach(letter => {
         letterCount[letter] = (letterCount[letter] || 0) + 1;
     });
 
     console.log(letterCount);
 
-    // First iteration: check all the correct ones first
+    // First pass: mark correct positions
     for (let i = 0; i < WORD_LEN; i++) {
         let pressedKey = document.getElementById(`${currRow}${i}`);
         let letter = pressedKey.textContent;
 
-        // Check if the letter is in the correct position
         if (solution[i] === letter) {
             pressedKey.classList.add("right-letter");
             let keyButton = document.getElementById(`Key${letter}`);
-            keyButton.classList.remove("insolution-letter");
+            keyButton.classList.remove("insolution-letter", "wrong-letter");
             keyButton.classList.add("right-letter");
-            correct += 1;
+            correctPositions.push(i);
             letterCount[letter] -= 1; // Deduct the letter count
         }
     }
 
-    if (correct === WORD_LEN) {
-        gameEnd = true;
-    }
-
-    console.log(letterCount);
-
-    // Second iteration: mark which ones are present but in wrong position
+    // Second pass: mark present but in wrong position
     for (let i = 0; i < WORD_LEN; i++) {
         let pressedKey = document.getElementById(`${currRow}${i}`);
         let letter = pressedKey.textContent;
 
         if (!pressedKey.classList.contains("right-letter")) {
             let keyButton = document.getElementById(`Key${letter}`);
-            if (solution.includes(letter) && letterCount[letter] > 0) {
+
+            if (letterCount[letter] > 0) {
                 pressedKey.classList.add("insolution-letter");
                 if (!keyButton.classList.contains("right-letter")) {
                     keyButton.classList.add("insolution-letter");
@@ -193,12 +189,19 @@ function checkWord() {
                 letterCount[letter] -= 1;
             } else {
                 pressedKey.classList.add("wrong-letter");
+                keyButton.classList.remove("right-letter", "insolution-letter");
                 keyButton.classList.add("wrong-letter");
             }
         }
     }
 
+    // End game if all letters are correct
+    if (correctPositions.length === WORD_LEN) {
+        gameEnd = true;
+    }
+
     // Go to the next row
     currRow += 1;
-    currCol = 0; 
+    currCol = 0;
 }
+
