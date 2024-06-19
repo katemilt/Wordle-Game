@@ -7,24 +7,24 @@ h1 {
 }
 
 hr {
-  width: 500px;
+  border: none;
+  border-top: 1px solid #d1ced0; 
 }
 
 #game-board {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
-  height: 300px;
+  height: 340px;
   margin: auto;
   margin-top: 3px;
-  /* background-color: #3b383b; */
 }
 
 .letter-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #dbccdb;
+  border: 2px solid #d1ced0;
   width: 50px;
   height: 50px;
   margin: 3px;
@@ -34,19 +34,73 @@ hr {
 }
 
 .right-letter {
-  background-color: #ce8cce;
+  background-color: #53beab;
   color: #fff;
   border-color: #fff;
 }
 
 .insolution-letter {
-  background-color: #613b6c;
+  background-color: #df97c4;
   color: #fff;
   border-color: #fff;
 }
 
 .wrong-letter {
-  background-color: #515050;
+  background-color: #6b6b6b;
   color: #fff;
   border-color: #fff;
+}
+
+#keyboard-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 30px 0px 0px 0px;
+}
+
+.key-button {
+  /* background-color: #d1ced0; */
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 55px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border: 1px solid #d1ced0;
+  border-radius: 6px;
+}
+
+.enter-button {
+  /* background-color: #d1ced0; */
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 76px;
+  height: 55px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border: 1px solid #d1ced0;
+  border-radius: 6px;
+}
+
+.empty-button {
+  border: none;
+  width: 20px; /* to center the second keyboard row */
+}
+
+.keyboard-row {
+  padding: 2px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 435px;
 }
