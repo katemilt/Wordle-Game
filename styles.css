@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  width: 500px;
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-top: 3px;
+  /* background-color: #3b383b; */
+}
+
+.letter-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #dbccdb;
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+  color: #000000;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.right-letter {
+  background-color: #ce8cce;
+  color: #fff;
+  border-color: #fff;
+}
+
+.insolution-letter {
+  background-color: #613b6c;
+  color: #fff;
+  border-color: #fff;
+}
+
+.wrong-letter {
+  background-color: #515050;
+  color: #fff;
+  border-color: #fff;
+}

@@ -1,7 +1,7 @@
-// list of valid 5 letter words
+// list of valid 5 letter English words
 // Compiled from: https://www.bestwordlist.com/5letterwords.htm
 
-export const words = [
+export const WORDS = [
     'AAHED',
     'AALII',
     'AARGH',
@@ -12922,4 +12922,4 @@ export const words = [
     'ZYGON',
     'ZYMES',
     'ZYMIC'
-]
+];
