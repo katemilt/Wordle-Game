@@ -11,10 +11,6 @@ let solution = WORDS[Math.floor(Math.random() * WORDS.length)]
 
 console.log(solution);
 
-window.onload = function() {
-    startGame();
-}
-
 function startGame() {
     // Setup gameboard
     createGameBoard();
@@ -26,6 +22,7 @@ function startGame() {
     document.addEventListener("keyup", addLetter);
 }
 
+// Create the letter boxes for the guesses
 function createGameBoard() {
     for (let i = 0; i < TOTAL_TRIES; i++) {
         for (let j = 0; j < WORD_LEN; j++) {
@@ -38,6 +35,7 @@ function createGameBoard() {
     }
 }
 
+// Create the keyboard to display on screen for user to click
 function displayKeyboard() {
     const keyboard = [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -85,6 +83,7 @@ function handleUserInput() {
     addLetter({ code: this.id });
 }
 
+// Direct responses for different user inputs
 function addLetter(key) {
     if (gameEnd)
         return;
@@ -103,11 +102,12 @@ function addLetter(key) {
     if (!gameEnd && currRow == TOTAL_TRIES) {
         gameEnd = true;
         // Show correct word to user
-        document.getElementById("answer").textContent = solution;
+        document.getElementById("correct-word").textContent = solution;
         alert("The correct word was: " + solution);
     }
 }
 
+// Handle response to user pressing a key other than enter or back
 function handleLetter(key) {
     // Ensure user is entering 5 letters
     if (currCol < WORD_LEN) {
@@ -119,6 +119,7 @@ function handleLetter(key) {
     }
 }
 
+// Handle response to user pressing back button
 function handleBack() {
     // Ensure user has entered 'something' to delete
     if (currCol > 0) {
@@ -128,52 +129,54 @@ function handleBack() {
     }
 }
 
+// Check user's word, colour boxes accordingly
 function checkWord() {
-    let guess = [];
+    let input = [];
+    let count = {};
+    let correctPositions = [];
 
-    // Collect the guessed letters into an array
+    // Collect each letter of user's input
     for (let i = 0; i < WORD_LEN; i++) {
         let pressedKey = document.getElementById(`${currRow}${i}`);
-        guess.push(pressedKey.textContent);
+        input.push(pressedKey.textContent);
     }
 
-    guess = guess.join(""); // Convert array to string
+    input = input.join(""); 
 
-    console.log(guess);
+    console.log(input);
 
     // Check if the guess is in the list of valid words
-    if (!WORDS.includes(guess)) {
-        alert("Not in word list!");
+    if (!WORDS.includes(input)) {
+        alert("Not in word list!"); // Alert user if not
         return;
     }
 
-    // Start processing guess
-    let letterCount = {};
-    let correctPositions = [];
+    // Count the occurences of each letter in the solution
+    for (const letter of solution) {
+        count[letter] = (count[letter] ?? 0) + 1;
+    }
+    console.log(count);
 
-    // Build letter count for the solution
-    [...solution].forEach(letter => {
-        letterCount[letter] = (letterCount[letter] || 0) + 1;
-    });
-
-    console.log(letterCount);
-
-    // First pass: mark correct positions
+    // Check if any of the letters in user input are correct (in right place)
     for (let i = 0; i < WORD_LEN; i++) {
         let pressedKey = document.getElementById(`${currRow}${i}`);
         let letter = pressedKey.textContent;
 
         if (solution[i] === letter) {
+            // Change colour of letter box to colour for right letters
             pressedKey.classList.add("right-letter");
+
             let keyButton = document.getElementById(`Key${letter}`);
+            // Remove class if letter previously found in wrong place or not found
             keyButton.classList.remove("insolution-letter", "wrong-letter");
+            // Change colour of keyboard button to colour for right letters
             keyButton.classList.add("right-letter");
             correctPositions.push(i);
-            letterCount[letter] -= 1; // Deduct the letter count
+            count[letter] -= 1; // Found letter, so remove from count
         }
     }
 
-    // Second pass: mark present but in wrong position
+    // Check if any of the letters in user input are present but not right place
     for (let i = 0; i < WORD_LEN; i++) {
         let pressedKey = document.getElementById(`${currRow}${i}`);
         let letter = pressedKey.textContent;
@@ -181,13 +184,16 @@ function checkWord() {
         if (!pressedKey.classList.contains("right-letter")) {
             let keyButton = document.getElementById(`Key${letter}`);
 
-            if (letterCount[letter] > 0) {
+            // Check if the solution contains this letter
+            if (count[letter] > 0) {
+                // Change colour of letter box to colour for letters in solution
                 pressedKey.classList.add("insolution-letter");
                 if (!keyButton.classList.contains("right-letter")) {
+                    // Change colour of keyboard button to colour for letters in solution
                     keyButton.classList.add("insolution-letter");
                 }
-                letterCount[letter] -= 1;
-            } else {
+                count[letter] -= 1; // 'Found' letter, so remove from count
+            } else { // Letter not present
                 pressedKey.classList.add("wrong-letter");
                 keyButton.classList.remove("right-letter", "insolution-letter");
                 keyButton.classList.add("wrong-letter");
@@ -205,3 +211,6 @@ function checkWord() {
     currCol = 0;
 }
 
+window.onload = function() {
+    startGame();
+}
