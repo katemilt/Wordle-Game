@@ -10,28 +10,28 @@
 - This same colour, #d1ced0, was also used for the borders around the keyboard buttons.
 - The background colour is a slightly off white colour, #f7f9f2.
 - All text is in black, except for when the user makes guesses and the box/keyboard button colours change, then the text becomes white so that it can be seen.
-![alt text](./design_system/colourpalette.png "Colour Palette")
+![alt text](design_system/colourpalette.png)
 
 ## Major Game Components:
 
 ### Starting a Game
 - Upon opening the window, the user sees all empty boxes (with no colour) and all of the keyboard buttons have no colour yet.
-![alt text](./design_system/startinggame.png "Starting Game")
+![alt text](design_system/startinggame.png)
 
 ### In Game Play
 - As the user starts making guesses, the letter boxes and keyboard buttons will change colours depending on the correctness of their guesses, as explained in the colour palette section.
-![alt text](./design_system/gameplay.png "Game Play")
+![alt text](design_system/gameplay.png)
 
 ### Game Scenarios
 
 Not a Word
 - When the user enters a word that is not in the valid words list, they will receive a popup informing them of this.
-![alt text](./design_system/notaword.png "Not a Word")
+![alt text](design_system/notaword.png)
 
 Win
 - When the user guesses the word correctly, they will receive a popup saying "Impressive!"
-![alt text](./design_system/win.png "Win")
+![alt text](design_system/win.png)
 
 Lose
 - When the user does not guess the word correctly after 6 tries, they will receive a popup providing them with the correct answer.
-![alt text](./design_system/correctword.png "Correct Word")
+![alt text](design_system/correctword.PNG)
