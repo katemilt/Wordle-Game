@@ -1,10 +1,11 @@
 body {
-  font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #F7F9F2;
 }
 
 h1 {
   text-align: center;
+  font-weight: bold;
 }
 
 hr {
@@ -106,3 +107,23 @@ hr {
   display: flex;
   flex-wrap: wrap;
 }
+
+#popup {
+  background-color: #E8C5E5;
+  color: #000000;
+  font-weight: bold;
+  font-size: 14px;
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease; 
+}
+
+#popup.visibility {
+  opacity: 1; 
+}
+

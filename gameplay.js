@@ -103,7 +103,7 @@ function addLetter(key) {
         gameEnd = true;
         // Show correct word to user
         document.getElementById("correct-word").textContent = solution;
-        alert("The correct word was: " + solution);
+        popup("The correct word was: " + solution);
     }
 }
 
@@ -147,7 +147,7 @@ function checkWord() {
 
     // Check if the guess is in the list of valid words
     if (!WORDS.includes(input)) {
-        alert("Not in word list!"); // Alert user if not
+        popup("Not in word list!"); // Alert user if not
         return;
     }
 
@@ -204,11 +204,23 @@ function checkWord() {
     // End game if all letters are correct
     if (correctPositions.length === WORD_LEN) {
         gameEnd = true;
+        popup("Impressive!"); // Message for player
     }
 
     // Go to the next row
     currRow += 1;
     currCol = 0;
+}
+
+// Popup for alerting users on status
+function popup(status) {
+    const popup = document.getElementById("popup");
+    popup.textContent = status;
+    popup.className = "visibility";
+
+    setTimeout(() => {
+        popup.classList.remove("visibility");
+    }, 1000);
 }
 
 window.onload = function() {
