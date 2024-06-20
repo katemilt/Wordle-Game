@@ -102,7 +102,9 @@ function addLetter(key) {
     if (!gameEnd && currRow == TOTAL_TRIES) {
         gameEnd = true;
         // Show correct word to user
-        document.getElementById("correct-word").textContent = solution;
+        const correctWord = document.createElement("div");
+        correctWord.className = "correct-word";
+        correctWord.textContent = solution;
         popup("The correct word was: " + solution);
     }
 }
@@ -220,7 +222,7 @@ function popup(status) {
 
     setTimeout(() => {
         popup.classList.remove("visibility");
-    }, 1000);
+    }, 2500);
 }
 
 window.onload = function() {
