@@ -20,6 +20,7 @@
 
 ### In Game Play
 - As the user starts making guesses, the letter boxes and keyboard buttons will change colours depending on the correctness of their guesses, as explained in the colour palette section.
+- The user can either type in their guesses or press on the keyboard buttons to enter them.
 ![alt text](design_system/gameplay.PNG)
 
 ### Game Scenarios
