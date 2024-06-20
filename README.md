@@ -1,5 +1,7 @@
 # Wordle-Game
 
+Play game at: https://katemilt.github.io/Wordle-Game/
+
 ## About
 This game is a clone of the game "Wordle" and has a very similar setup and functionality. The game involves guessing a 5 letter word within 6 tries, while providing the user with hints through colours.
 
