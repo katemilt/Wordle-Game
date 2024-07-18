@@ -4,7 +4,7 @@
 This game is a clone of the game "Wordle" and has a very similar setup and functionality. The game involves guessing a 5 letter word within 6 tries, while providing the user with hints through colours.
 There are two versions of the game in this repository:
 - Version 1 (v01) which is the game created in HTML, CSS, and JavaScript.
-- Version 2 (v02) which is the game created in HTML, CSS, JavaScript, and PHP to create a leaderboard that stores the top 10 scores for the session.
+- Version 2 (v02) which is the game created in HTML, CSS, JavaScript, and PHP to create a leaderboard that stores the top 10 scores for the session. To open this version, navigate to the 'versions' directory and run "(cd v02 && php -S localhost:4000)" in the cmd.
 
 ## How to Play
 Similar to the NY Times Wordle game, this clone gives hints to the user on what the correct word is by changing the colours of the letters to three different colours: grey, pink, and turquoise.
