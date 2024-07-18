@@ -23,3 +23,8 @@ When the user wins the game, enters an invalid word, or does not guess the word 
 - "Not in word list!" This popup appears when the user has entered a word that is not a valid 5 letter word in the English dictionary.
 - "Impressive!" This popup appears when the user has correctly guessed the word.
 - "The correct word was: __" This popup appears when the user does not guess the word in six tries.
+
+### Leaderboard
+Version 2 of the game supports a leaderboard that displays the top 10 scores entered for the session. These scores can be reset at anytime. 
+#### See the below screenshot to view the game setup in version 2:
+![alt text](docs/design_system/userinput.PNG)
