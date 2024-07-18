@@ -1,5 +1,5 @@
 // List of all 5 letter words
-import { WORDS } from "./validWords.js";
+import { WORDS } from "validWords.js";
 
 // Variables
 var TOTAL_TRIES = 6;
