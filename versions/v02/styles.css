@@ -17,7 +17,7 @@ hr {
 footer {
     padding: 10px;
     text-align: right; 
-    /* position: fixed;  */
+    position: fixed;  
     right: 10px; 
     bottom: 10px; 
     width: auto;
