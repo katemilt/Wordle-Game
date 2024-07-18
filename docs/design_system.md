@@ -39,5 +39,6 @@ Lose
 
 ### Leaderboard
 
-In Version 2 of the game, a leaderboard showing the top 10 scores for the current session is displayed using a PHP server. This leaderboard sorts the scores based on how many tries left the user has, making the top score the user with the most tries remaining. Upon finishing the game, whether the user wins or loses, the user will be prompted to enter their name to submit their score. This leaderboard can be cleared by the user by pressing the "Clear Scores" button beside the board.
+- In Version 2 of the game, a leaderboard showing the top 10 scores for the current session is displayed using a PHP server. This leaderboard sorts the scores based on how many tries left the user has, making the top score the user with the most tries remaining. Upon finishing the game, whether the user wins or loses, the user will be prompted to enter their name to submit their score. 
+- This leaderboard can be cleared by the user by pressing the "Clear Scores" button beside the board.
 ![alt text](design_system/userinput.PNG)
